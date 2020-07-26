@@ -15,17 +15,6 @@ import json
 
 import os
 
-def string_formatter(df, name, agg_col):
-    """
-    Given a dataframe, return a series with the desired hoverinfo
-    """
-
-    result = """<b>{}</b> <br>
-    Date: {}, {} <br>
-    {}: {:.2f}""".format(name, df['day_of_week'], df['date'], agg_col, df[agg_col])
-
-    return result
-
 
 default_colors = [ '#636EFA', '#EF553B', '#00CC96', '#AB63FA', '#FFA15A', '#19D3F3', '#FF6692', '#B6E880', '#FF97FF', '#FECB52',
 '#9e7200', '#00588d', '#ff0000', '#352300', '#ff003e',
@@ -471,7 +460,7 @@ def produce_case_normal_plot(dates_range, data_to_plot, groups, cases_or_deaths,
         'data': main_plot_traces,
         'layout': dict(
             xaxis={
-                'title': 'Date',
+                'title': None,
                 'range': dates_range,
                 'showgrid': False,
             },
